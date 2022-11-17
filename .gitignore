@@ -1,3 +1,7 @@
+#UNUSED
+src/
+.vscode/
+
 # Logs
 logs
 *.log

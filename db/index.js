@@ -230,12 +230,10 @@ async function createTags(tagList) {
   // need something like: $1), ($2), ($3
   // then we can use: (${ insertValues }) in our string template
   const insertValues = tagList.map((_, index) => `$${index + 1}`).join("), (");
-  console.log("INSERTVALUES", insertValues);
 
   // need something like $1, $2, $3
   // then we can use (${ selectValues }) in our string template
   const selectValues = tagList.map((_, index) => `$${index + 1}`).join(", ");
-  console.log("SELECTVALUES", selectValues);
 
   try {
     // insert the tags, doing nothing on conflict
@@ -258,7 +256,6 @@ async function createTags(tagList) {
       `,
       tagList
     );
-    console.log("ROWS", rows);
     return rows;
   } catch (error) {
     console.log("Error in createTags!");
