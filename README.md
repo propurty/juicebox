@@ -4,6 +4,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+    http.cat - use for status codes
+
+    Things I will use in part 2.
+    "start": "node index.js",
+    "start:dev": "nodemon index.js",
+
+
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+
 In the project directory, you can run:
 
 ### `npm start`
