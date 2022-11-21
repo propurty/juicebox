@@ -30,7 +30,7 @@ async function dropTables() {
 
 async function createTables() {
   try {
-    await client.query(`--sql 
+    await client.query(`
         CREATE TABLE users (
         id SERIAL PRIMARY KEY,
         username varchar(255) UNIQUE NOT NULL,
@@ -94,7 +94,6 @@ async function createInitialUsers() {
 }
 
 async function createInitialPosts() {
-  // console.log(getAllUsers);
   try {
     const [albert, sandra, glamgal] = await getAllUsers();
 
@@ -125,32 +124,6 @@ async function createInitialPosts() {
     throw error;
   }
 }
-
-// NOTE - Can be removed at any time.
-// async function createInitialTags() {
-//   try {
-//     console.log("Starting to create tags...");
-
-//     const [happy, sad, inspo, catman] = await createTags([
-//       "#happy",
-//       "#worst-day-ever",
-//       "#youcandoanything",
-//       "#catmandoeverything",
-//     ]);
-//     console.log(happy);
-
-//     const [postOne, postTwo, postThree] = await getAllPosts();
-
-//     await addTagsToPost(postOne.id, [happy, inspo]);
-//     await addTagsToPost(postTwo.id, [sad, inspo]);
-//     await addTagsToPost(postThree.id, [happy, catman, inspo]);
-
-//     console.log("Finished creating tags!");
-//   } catch (error) {
-//     console.log("Error creating tags!");
-//     throw error;
-//   }
-// }
 
 async function rebuildDB() {
   try {

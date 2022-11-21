@@ -1,6 +1,8 @@
 #UNUSED
-src/
+src
 .vscode/
+.env
+.idea/
 
 # Logs
 logs
