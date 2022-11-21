@@ -1,7 +1,13 @@
 const express = require("express");
 const usersRouter = express.Router();
 const jwt = require("jsonwebtoken");
-const { getAllUsers, getUserByUsername, createUser } = require("../db");
+const {
+  getAllUsers,
+  getUserByUsername,
+  createUser,
+  // getUserById,
+  // updateUser,
+} = require("../db");
 
 usersRouter.use((req, res, next) => {
   console.log("A request is being made to /users");
@@ -37,10 +43,7 @@ usersRouter.post("/login", async (req, res, next) => {
         process.env.JWT_SECRET
       );
 
-      // token;
-
       // const recoveredData = jwt.verify(token, process.env.JWT_SECRET);
-
       // jwt.verify(token, "server secret");
 
       res.send({ message: "you're logged in!", token });
@@ -91,5 +94,20 @@ usersRouter.post("/register", async (req, res, next) => {
 });
 
 // TODO - DELETE /api/users/:id
+// requireUser
+// usersRouter.delete("/:userId", async (req, res, next) => {
+//   const { userId } = req.params;
+
+//   try {
+//     const user = await getUserById(userId);
+//     if (user) {
+//       const updatedUser = await updateUser(userId, { active: false });
+//       res.send({ user: updatedUser });
+//     } else {
+//     }
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 
 module.exports = usersRouter;
